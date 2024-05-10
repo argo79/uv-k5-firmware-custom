@@ -26,19 +26,19 @@ ENABLE_BIG_FREQ                         := 1
 ENABLE_SMALL_BOLD                       := 1
 ENABLE_KEEP_MEM_NAME                    := 1
 ENABLE_WIDE_RX                          := 1
-ENABLE_TX_WHEN_AM                       := 0
-ENABLE_F_CAL_MENU                       := 0
+ENABLE_TX_WHEN_AM                       := 1
+ENABLE_F_CAL_MENU                       := 1
 ENABLE_SHOW_CHARGE_LEVEL                := 0
 ENABLE_REVERSE_BAT_SYMBOL               := 0
 ENABLE_NO_CODE_SCAN_TIMEOUT             := 1
-ENABLE_SQUELCH_MORE_SENSITIVE           := 0
+ENABLE_SQUELCH_MORE_SENSITIVE           := 1
 ENABLE_FASTER_CHANNEL_SCAN              := 1
 ENABLE_RSSI_BAR                         := 1
 ENABLE_AUDIO_BAR                        := 1
 ENABLE_COPY_CHAN_TO_VFO                 := 1
 ENABLE_SPECTRUM                         := 1
 ENABLE_REDUCE_LOW_POWER                 := 1
-ENABLE_BYP_RAW_DEMODULATORS             := 0
+ENABLE_BYP_RAW_DEMODULATORS             := 1
 ENABLE_BLMIN_TMP_OFF                    := 0
 ENABLE_SCAN_RANGES                      := 1
 ENABLE_SPECTRUM_COPY_VFO                := 1
@@ -206,7 +206,7 @@ endif
 OBJCOPY = arm-none-eabi-objcopy
 SIZE = arm-none-eabi-size
 
-AUTHOR_STRING := NUNU
+AUTHOR_STRING := Arg0.net
 # the user might not have/want git installed
 # can set own version string here (max 7 chars)
 ifneq (, $(shell $(WHERE) git))
