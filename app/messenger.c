@@ -363,14 +363,14 @@ void MSG_HandleReceive(){
 		#ifdef ENABLE_MESSENGER_UART
 			UART_printf("SVC<RCPT\r\n");
 		#endif
-		rxMessage[3][0] = '+';
+		rxMessage[3][0] = '*';
 		gUpdateStatus = true;
 		gUpdateDisplay = true;
 	#endif
 	} else {
 		moveUP(rxMessage);
 		if (dataPacket.data.header >= INVALID_PACKET) {
-			snprintf(rxMessage[3], PAYLOAD_LENGTH + 2, "ERROR: INVALID PACKET.");
+			snprintf(rxMessage[3], PAYLOAD_LENGTH + 2, "ERRORE. PACCHETTO INVALIDO!");
 		}
 		else
 		{
@@ -411,7 +411,7 @@ void MSG_HandleReceive(){
 		dataPacket.data.header == ENCRYPTED_MESSAGE_PACKET)
 	{
 		// wait so the correspondent radio can properly receive it
-		SYSTEM_DelayMs(700);
+		SYSTEM_DelayMs(1000);
 
 		if(gEeprom.MESSENGER_CONFIG.data.ack)
 			MSG_SendAck();
