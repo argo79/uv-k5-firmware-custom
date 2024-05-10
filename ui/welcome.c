@@ -37,7 +37,7 @@ void UI_DisplayReleaseKeys(void)
 
 	UI_PrintString("MOLLA", 0, 127, 1, 10);
 	UI_PrintString("TUTTO !", 0, 127, 3, 10);
-	UI_PrintString("FORZA WAGNER", 0, 127, 6);
+	UI_PrintStringSmallBold("FORZA WAGNER!", 0, 127, 6);
 
 	ST7565_BlitStatusLine();  // blank status line
 	ST7565_BlitFullScreen();
@@ -47,6 +47,7 @@ void UI_DisplayWelcome(void)
 {
 	char WelcomeString0[16];
 	char WelcomeString1[16];
+	char WelcomeString2[16];
 	
 	memset(gStatusLine,  0, sizeof(gStatusLine));
 	memset(gFrameBuffer, 0, sizeof(gFrameBuffer));
@@ -64,6 +65,8 @@ void UI_DisplayWelcome(void)
 	{
 		memset(WelcomeString0, 0, sizeof(WelcomeString0));
 		memset(WelcomeString1, 0, sizeof(WelcomeString1));
+		memset(WelcomeString2, 0, sizeof(WelcomeString2));
+
 
 		if (gEeprom.POWER_ON_DISPLAY_MODE == POWER_ON_DISPLAY_MODE_VOLTAGE)
 		{
@@ -76,12 +79,14 @@ void UI_DisplayWelcome(void)
 		else
 		{
 			EEPROM_ReadBuffer(0x0EB0, WelcomeString0, 16);
-			strcpy(WelcomeString1, "R.R. Preppers");
+			strcpy(WelcomeString1, "Rete Radio");
+			strcpy(WelcomeString2, " Preppers");
 			// EEPROM_ReadBuffer(0x0EC0, WelcomeString1, 16);
 		}
 
 		UI_PrintString(WelcomeString0, 0, 127, 0, 10);
-		UI_PrintString(WelcomeString1, 0, 127, 2, 10);
+		UI_PrintString(WelcomeString1, 0, 127, 1, 10);
+		UI_PrintString(WelcomeString2, 0, 127, 2, 10);
 		UI_PrintStringSmall(Version, 0, 128, 6);
 
 		ST7565_BlitStatusLine();  // blank status line
