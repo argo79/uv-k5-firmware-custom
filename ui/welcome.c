@@ -37,7 +37,7 @@ void UI_DisplayReleaseKeys(void)
 
 	UI_PrintString("MOLLA", 0, 127, 1, 10);
 	UI_PrintString("TUTTO !", 0, 127, 3, 10);
-	UI_PrintStringSmallBold("FORZA WAGNER!", 0, 127, 6);
+	UI_PrintStringSmallBold(" FORZA WAGNER!", 0, 127, 6);
 
 	ST7565_BlitStatusLine();  // blank status line
 	ST7565_BlitFullScreen();
@@ -80,14 +80,14 @@ void UI_DisplayWelcome(void)
 		{
 			EEPROM_ReadBuffer(0x0EB0, WelcomeString0, 16);
 			strcpy(WelcomeString1, "Rete Radio");
-			strcpy(WelcomeString2, " Prepper");
+			strcpy(WelcomeString2, "Prepper");
 			// EEPROM_ReadBuffer(0x0EC0, WelcomeString1, 16);
 		}
 
 		UI_PrintString(WelcomeString0, 0, 127, 0, 10);
 		UI_PrintString(WelcomeString1, 0, 127, 2, 10);
 		UI_PrintString(WelcomeString2, 0, 127, 4, 10);
-		UI_PrintStringSmallBold(Version, 2, 128, 6);
+		UI_PrintStringSmall(Version, 2, 127, 6);
 
 		ST7565_BlitStatusLine();  // blank status line
 		ST7565_BlitFullScreen();

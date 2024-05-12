@@ -250,7 +250,7 @@ void UI_DisplayMain(void)
 	memset(gFrameBuffer, 0, sizeof(gFrameBuffer));
 
 	if(gLowBattery && !gLowBatteryConfirmed) {
-		UI_DisplayPopup("LOW BATTERY");
+		UI_DisplayPopup("BATTERIA BASSA!");
 		ST7565_BlitFullScreen();
 		return;
 	}
